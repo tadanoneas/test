@@ -1,6 +1,6 @@
 # README
 
-TODOリストのチュートリアルサイトのGitHubコード
+以下のTODOリストのチュートリアルサイトを実装してみた後のコード
 https://qiita.com/naoki85/items/51a8b0f2cbf949d08b11
 
 * Ruby 2.7.2
