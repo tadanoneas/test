@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODOリストのチュートリアルサイトのGitHubコード
+https://qiita.com/naoki85/items/51a8b0f2cbf949d08b11
 
-Things you may want to cover:
+* Ruby 2.7.2
 
-* Ruby version
+* rails 6.0.3
 
-* System dependencies
+* vue.js 2.6.12
 
-* Configuration
+* PostgreSQL 13.1
 
-* Database creation
+* Docker
 
-* Database initialization
+* gitHub
 
-* How to run the test suite
+* webpacker 4.3(webpack 4.44.2)
+色々検証した結果、webpackerは最新のwebpack(v5.4.0)に非対応
 
-* Services (job queues, cache servers, search engines, etc.)
+* yarn v1.22.5
 
-* Deployment instructions
+* materialize
 
-* ...
+その他：
+本題の個人アプリもおそらくこのバージョンにするか
+webpackerに頼らない実装を試みる
