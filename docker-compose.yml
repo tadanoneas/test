@@ -1,0 +1,44 @@
+version: '3'
+services:
+  db:
+    image: postgres:12
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data
+    ports:
+      - "50000:5432"
+    environment:
+      POSTGRES_DB: myapp_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  db_test:
+    image: postgres:12
+    volumes:
+      - postgres-vol_test:/var/lib/postgresql/data
+    ports:
+      - "50001:5432"
+    environment:
+      POSTGRES_DB: myapp_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  api:
+    build: ./rails
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./rails:/myapp
+    ports:
+      - "50003:3000"
+    depends_on:
+      - db
+      - db_test
+  view:
+    build: ./vuejs
+    command: yarn run serve
+    volumes:
+      - ./vuejs:/myapp
+      - /myapp/node_modules # コンテナ内のnode_nodulesがマウントで削除されないようにする
+    ports:
+      - "50004:8080"
+
+volumes:
+  postgres-vol:
+  postgres-vol_test:
